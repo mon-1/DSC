@@ -1,4 +1,4 @@
 # DSC
-Decntralized stable coin (WIP)
-following the coursework from cyfrinAudits and Patrick Collins foundry course
-contracts are functional but testing is a wip, until then this code is potentially vulnreable 
+Decentralized stable coin (WIP)
+Following the coursework from Cyfrin Audits and Patrick Collins Foundry course
+Contracts are functional, but testing is a WIP, in progress. Until then, this code is potentially vulnerable.

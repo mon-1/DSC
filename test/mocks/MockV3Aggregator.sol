@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSE
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.18;
 
 contract MockV3Aggreagtor {
     uint256 public constant version = 0;
@@ -27,12 +27,7 @@ contract MockV3Aggreagtor {
         getStartedAt[latestRound] = block.timestamp;
     }
 
-    function updateRoundData(
-        uint80 _roundId,
-        int256 _answer,
-        uint256 _timestamp,
-        uint256 _startedAt
-    ) public {
+    function updateRoundData(uint80 _roundId, int256 _answer, uint256 _timestamp, uint256 _startedAt) public {
         latestRound = _roundId;
         latestAnswer = _answer;
         latestTimestamp = _timestamp;
@@ -44,13 +39,7 @@ contract MockV3Aggreagtor {
     function getRoundData()
         external
         view
-        returns (
-            uint80 roundId,
-            int256 answer,
-            uint256 srartedAt,
-            uint256 updatedAt,
-            uint80 answeredInRound
-        )
+        returns (uint80 roundId, int256 answer, uint256 srartedAt, uint256 updatedAt, uint80 answeredInRound)
     {
         return (
             uint80(latestRound),

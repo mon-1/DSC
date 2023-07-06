@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: UNLICENSE
+//SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.18;
 
 import {ERC20Burnable, ERC20} from "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
@@ -26,7 +26,11 @@ contract MockFailedTransferFrom is ERC20Burnable, Ownable {
         _mint(account, amount);
     }
 
-    function transferFrom(address, address, uint256) public pure override returns (bool) {
+    function transferFrom(
+        address,
+        address,
+        uint256
+    ) public pure override returns (bool) {
         return false;
     }
 }

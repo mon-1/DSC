@@ -1,4 +1,4 @@
-//SPDX-License-Identifier: UNLICENSE
+//SPDX-License-Identifier: UNLICENSED
 
 pragma solidity ^0.8.19;
 
@@ -24,6 +24,21 @@ contract DecentralizedStableCoinTest is StdCheats, Test {
         dsc.mint(address(this), 100);
         vm.expectRevert();
         dsc.burn(0);
+        vm.stopPrank();
+    }
+
+    function testCantBurnMoreThanYouHave() public {
+        vm.startPrank(dsc.owner());
+        dsc.mint(address(this), 100);
+        vm.expectRevert();
+        dsc.burn(0);
+        vm.stopPrank();
+    }
+
+    function testCantMintToZeroAddress() public {
+        vm.startPrank(dsc.owner());
+        vm.expectRevert();
+        dsc.mint(address(0), 100);
         vm.stopPrank();
     }
 }
